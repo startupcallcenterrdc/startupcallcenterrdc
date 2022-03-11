@@ -207,7 +207,7 @@ div {}
 }
 
 nav {/* 
-    background: linear-gradient( -90deg, #0f1faa 0%, #1976D2 100%); *//* 
+    background: linear-gradient( -90deg, #0f1faa 0%, #18ffff 100%); *//* 
     backdrop-filter: blur(100px); */
 }
 
@@ -908,7 +908,7 @@ body {
     width: 1rem;
     height: 1rem;
     border-radius: 100%;
-    background: #1976D2;
+    background: #18ffff;
     -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
     animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
