@@ -656,6 +656,7 @@ label {
     /* For mobile phones: */
     header{
         text-align: center;
+        background-position: -100px;
     }
     header h1 {
         font-size: 36px;
@@ -698,7 +699,7 @@ label {
 }
 
 header {
-    background: linear-gradient(to right, #02142e80 0%, #0d48a13a 90%), url(../images/bg2.jpg) no-repeat;
+    background: linear-gradient(to right, #02142e80 0%, #0d48a13a 90%), url(../images/bg1.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: left;
