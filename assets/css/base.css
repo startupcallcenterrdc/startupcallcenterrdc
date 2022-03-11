@@ -656,7 +656,7 @@ label {
     /* For mobile phones: */
     header{
         text-align: center;
-        background-position: -100px;
+        background-position: -100vw !important;
     }
     header h1 {
         font-size: 36px;
