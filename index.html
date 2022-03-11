@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Landing page template built with HTML and Bootstrap 4 for presenting training courses, classes, workshops and for convincing visitors to register using the form.">
+    <meta name="author" content="Inovatik">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+    <meta property="og:site_name" content="" />
+    <!-- website name -->
+    <meta property="og:site" content="" />
+    <!-- website link -->
+    <meta property="og:title" content="" />
+    <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="" />
+    <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="" />
+    <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="" />
+    <!-- where do you want your post to link to -->
+    <meta property="og:type" content="article" />
+
+    <!-- Website Title -->
+    <title>Job pour tous</title>
+
+    <link rel="stylesheet" href="./assets/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/swiper.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- Favicon  -->
+    <link rel="icon" href="./assets/images/IMG-20220105-WA0006.jpg">
+</head>
+
+<body data-spy="scroll" data-target=".fixed-top">
+
+    <!-- Preloader -->
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+    <div class="nav-container p-fixed full-width">
+        <nav class="pd  z-depth-0 transparent">
+            <div class="nav-wrapper">
+                <a href="" class="brand-logo left header-logo flex-row">
+                    <img src="./assets/images/logos/89985DCE.png" alt="u-immo logo">
+                </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger waves-circle waves-light right">
+                    <i class="white-text text-darken-2" style="display: flex; align-items: center;"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          </i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="">Acceuil</a></li>
+                    <li><a href="{% url 'offers' %}">Services</a></li>
+                    <li><a href="#about">A propos</a></li>
+                    <li><a href="#projects">FAQ</a></li>
+                    <li><a class="btn bdr-2 z-depth-0 cyan-text white-text btn-outline" href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li class="divider"></li>
+        <li><a href="{% url 'account' %}">Mon profil</a></li>
+        <li><a href="{% url 'document' %}">Mes Documents</a></li>
+    </ul>
+
+    <!-- Dropdown Structure -->
+    <ul id="formations" class="dropdown-content">
+        <li><a class="disabled" href="">Nos formations</a></li>
+        <li class="divider"></li>
+        <li><a href="">...</a></li><!-- 
+        <li class="divider"></li>
+        <li><a class="red-text" href="">Autres</a></li> -->
+    </ul>
+
+    <ul class="sidenav" id="mobile-demo" style="z-index: 2000;">
+        <li class="">
+            <div class="blue darken-2 mobile-profil-nav flex-center">
+                <div class="mobile-nav-image-container">
+                    {% if user.is_authenticated %}
+                    <div class="card-back-image z-depth-5" style="background-image: url('{{ user|profil_avatar_url }}'); height: 100%; border-radius: 100%;"></div>
+                    {% else %}
+                    <div class="card-back-image z-depth-5" style="background-image: url('./assets/images/undraw_profile_pic_ic-5-t.svg'); height: 100%; border-radius: 100%;"></div>
+                    {% endif %}
+                </div>
+                <div>
+                    <h5 class="white-text capitalize center-align">
+                        {% if user.is_authenticated %} {{user.first_name }} {{ user.last_name}} {% else %} Job pour tous {% endif %}
+                    </h5>
+                </div>
+            </div>
+        </li>
+        {% if user.is_authenticated %}
+        <li>
+            <ul class="collapsible">
+                <li class="">
+                    <a href="#mon-compte">
+                        <span class="collapsible-header" style="padding: 0; line-height: auto;">Mon compte</span>
+                    </a>
+                    <ul class="collapsible-body">
+                        <li>
+                            <a href="{% url 'account' %}">
+                                Profil
+                            </a>
+                        </li>
+                        <li> <a href="{% url 'document' %}">Document</a></li>
+                        <li class="divider"></li>
+                        {% if user.is_staff %}
+                        <li>
+                            <a href="{% url 'admin' %}">
+                                Admin espace
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        {% endif %}
+        <div class="divider"></div>
+        <li>
+            <a href="">
+                Acceuil
+            </a>
+        </li>
+        <li>
+            <a href="#services">
+                Nos Services
+            </a>
+        </li>
+        <li>
+            <a href="#about">
+                A propos
+            </a>
+        </li>
+
+        <li><a href="{% url 'offers' %}">Offres d'emploi</a></li>
+
+        <li>
+            <a href="">
+                FAQ
+            </a>
+        </li>
+        {% if user.is_authenticated %}
+        <br>
+        <li>
+            <a class=" red-text white z-depth-1 btn-large darken-1" href="{% url 'disconnect' %}">
+                        Se deconnecter
+                    </a>
+        </li>
+        {% else %}
+        <br>
+        <li>
+            <a class="cyan-text white z-depth-1 btn-large darken-1" href="{% url 'connect' %}">
+                        Se connecter
+                    </a>
+        </li>
+        <li>
+            <a class="btn-large z-depth-1 blue darken-2" href="{% url 'register' %}">
+                S'enrégistrer
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+
+    <header class="pd white-text" style="min-height: 110vh;">
+        <br><br><br><br><br>
+        <div class="row flex-center">
+            <div class="col s12 m6">
+                <h1 class="white-text" style="line-height: 100%;">
+                    Cabinet de Consultation en <span class="text-bold ">Entrepreneuriat</span>
+                </h1>
+                <p class="white-text">Consultez un professionel pour la croissance de votre activité.
+                    Nous repondons à toutes vos questions sur l'entreneuriat.</p><br>
+                <br><button class="btn-large btn-outline bdr-2 z-depth-0">Prendre rendez-vous</button><br><br><br><br>
+                </form>
+            </div>
+            <div class="col s12 m6 pd">
+                <div class="row">
+                    <div class="col s0 m2"></div>
+                <form class="col s12 m10 card z-depth-5 bdr-2 background-blur">
+                    <div class="card-content">
+                        <h3 class="white-text">Quel est votre préoccupation ?</h3>
+                        <p class="white-text">Nous sommes disposés à vous accompagner !</p>
+                        <div class="row">
+                            <div class="input-field col s12 white-text">
+                                <input id="adress" type="email" class="validate white-text" required>
+                                <label for="adress">Votre e-mail</label>
+                            </div>
+                            <div class="input-field col s12 white-text">
+                                <input id="question" type="text" class="validate white-text" required>
+                                <label for="question">Question</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 file-field input-field">
+                                <button class="btn cyan bdr-1 accent-3 black-text bdr-1 z-depth-0">Envoyez</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="">
+    
+        <section class="pd section">
+            <div class="row center-align flex-justify-center">
+                <div class="col s12">
+                    <h2 class="text-bold upperline">Ce que nous avons gardé pour vous</h2>
+                    <p>Prenez un rendez-vous avec un professionel pour la croissance de votre activité.</p>
+                    <br><br>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card z-depth-0 bdr-3" style="height: 400px;">
+                        <div class="card-content">
+                            <img class=" pd50 full-width border-radius" style="height: 150px;" src="./assets/images/ullistrations/undraw_judge_katerina_limpitsouni_ny-1-q.svg" alt="">
+                            
+                            <h3 class="m-0">Consultation Judirique d'entreprise</h3>
+                        </div>
+                        <div class="bottom p-absolute full-width">
+                            <a class="btn btn-outline cyan-text z-depth-0 bdr-2">Prendre RDV</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card z-depth-0 bdr-3" style="height: 400px;">
+                        <div class="card-content">
+                            <img class=" pd50 full-width border-radius" style="height: 150px;" src="./assets/images/ullistrations/undraw_predictive_analytics_kf-9-n.svg" alt="">
+                            <h3 class="m-0">Consultation financière d'entreprise</h3>
+                            <br>
+                            <ul>
+                                <li>Tout savoir sur la fidelité de votre entreprise</li>
+                            </ul>
+                        </div>
+                        <div class="bottom p-absolute full-width">
+                            <a class="btn btn-outline cyan-text z-depth-0 bdr-2">Prendre RDV</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card z-depth-0 bdr-3" style="height: 400px;">
+                        <div class="card-content">
+                            <img class=" pd50 full-width border-radius" style="height: 150px;" src="./assets/images/ullistrations/undraw_growth_analytics_re_pyxf.svg" alt="">
+                            <h3 class="m-0">Consultation sur les tratégies d'entreprise</h3>
+                        </div>
+                        <div class="bottom p-absolute full-width">
+                            <a class="btn btn-outline cyan-text z-depth-0 bdr-2">Prendre RDV</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card z-depth-0 bdr-3" style="height: 400px;">
+                        <div class="card-content">
+                            <img class=" pd50 full-width border-radius" style="height: 150px;" src="./assets/images/ullistrations/undraw_runner_start_x-0-uu.svg" alt="">
+                            
+                            <h3 class="m-0">Consultation avant d'entreprendre</h3>
+                            <br>
+                            <ul>
+                                <li>Tout savoir sur son secteur</li>
+                            </ul>
+                        </div>
+                        <div class="bottom p-absolute full-width">
+                            <a class="btn btn-outline cyan-text z-depth-0 bdr-2">Prendre RDV</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card z-depth-0 bdr-3" style="height: 400px;">
+                        <div class="card-content">
+                            <img class=" pd50 full-width border-radius" style="height: 150px;" src="./assets/images/ullistrations/undraw_bug_fixing_oc-7-a.svg" alt="">
+                            <h3 class="m-0">Consultation Digitale d'entreprise et Technique</h3>
+                            <br>
+                            <ul>
+                                <li>Pourquoi avoir un site internet</li>
+                                <li>Où heberger son site</li>
+                            </ul>
+                        </div>
+                        <div class="bottom p-absolute full-width">
+                            <a class="btn btn-outline cyan-text z-depth-0 bdr-2">Prendre RDV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="pd white section" id="about">
+            <div class="row flex-center">
+                <div class="col s12 center-align">
+                    <h2 class="upperline text-bold">Pourquoi nous faire confiance ?</h2>
+                    <br>
+                </div>
+                <div class="col s12 m6">
+                    <p class="text-justified">
+                        Nous sommes un <strong class="text-bold">un Call Center des entrepreneurs</strong>
+                        et lauréat de plusieurs concours d'entreneuriat.
+                        <br>Nous vous donnerons toutes les réponses possible afin de vous permettre de mieux saisir les opportunités.
+                    </p>
+
+                    <h3 class="btn cyan z-depth-0 bdr-3" style="transform: rotateZ(-5deg) translateY(15px);">Ce que vous obtiendrez</h3>
+                    
+                    <blockquote>
+                        <ul>
+                            <li>- Notre réseau;</li>
+                            <li>- Un mentorat;</li>
+                            <li>- La croissance de votre entreprise.</li>
+                        </ul>
+                    </blockquote>
+                    <br>
+                </div>
+                <div class="col s12 m6">
+                    <img class=" full-width bdr-3" src="./assets/images/pic8.jpg" alt="">
+                </div>
+            </div>
+        </section>
+    
+        <section class="pd section">
+            <div class="row flex-center">
+                <div class="col s12 center-align">
+                    <h2 class="upperline text-bold">Comment nous fonctionnons ?</h2>
+                    <br><br>
+                </div>
+                <div class="col s12">
+                    <div class="row">
+                        <div class="col s12 m4">
+                            <div class="pd50">
+                                <div class="red-text text-lighten-3 text-bold" style="font-size: 70px; margin-bottom: 30px; text-decoration: underline; font-style: italic;">01 </div>
+                                <div>
+                                    <h4>Consultation téléphonique</h4>
+                                    <p>Appelez gratuitement nos services et obtenez une solution à votre préocupation.</p>
+                                    <br><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="pd50">
+                                <div class="red-text text-lighten-3 text-bold" style="font-size: 70px; margin-bottom: 30px; text-decoration: underline; font-style: italic;">02 </div>
+                                <div>
+                                    <h4>Consultation physique</h4>
+                                    <p>Prenez un rendez-vous avec un chef d'entreprise et obtenez une solution pratique et détaillée sur votre problème.</p>
+                                    <br><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="pd50">
+                                <div class="red-text text-lighten-3 text-bold" style="font-size: 70px; margin-bottom: 30px; text-decoration: underline; font-style: italic;">03 </div>
+                                <div>
+                                    <h4>Mentorat</h4>
+                                    <p>Prenez un abonnement afin de travailler sur une opportunité à saisir ou une présentation à faire.</p>
+                                    <br><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    
+        <section class="pd section white">
+            <div class="row flex-center">
+                <div class="col s12 center-align">
+                    <h2 class="upperline text-bold">FAQ</h2><br>
+                </div>
+                <div class="col s12 m6">
+                    <ul class="collapsible z-depth-0">
+                        <li>
+                          <div class="collapsible-header"><i class="bi bi-question"></i>First</div>
+                          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                          <div class="collapsible-header"><i class="bi bi-question"></i>Second</div>
+                          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                          <div class="collapsible-header"><i class="bi bi-question"></i>Third</div>
+                          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                      </ul>
+                </div>
+                <div class="col s12 m6">
+                    <img class="full-width border-radius" src="./assets/images/ullistrations/undraw_questions_re_1fy7.svg" alt="">
+                </div>
+            </div>
+        </section>
+    
+        <!-- Description -->
+        <section class="white-text pd background-color section" id="description">
+            <div class="row">
+                <h2 class="col s12 center-align white-text" style="margin-top: 0;">
+                    Témoignages
+                    <br><br></h2>
+                <div class="col s12">
+                    <div class="row pd50">
+                        <div class="col s12 m4">
+                            <div class="">
+                            <img class="full-width bdr-3" src="./assets/images/pic6.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col s12 m8">
+                            <br>
+                            <p class="white-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur eveniet ut quas? Molestias maiores ut alias? Possimus dolorem iusto harum minus obcaecati! Mollitia modi consectetur labore, omnis qui maxime sit?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of basic-2 -->
+    
+<!--         <section class="pd section white">
+            <div class="center-align"> 
+            <h2>Nos partenaires</h2>
+            </div>
+    
+            <div class="slider-container">
+                <div class="swiper-container image-slider-2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="img-fluid full-width" src="./assets/images/customer-logo-1.png" alt="alternative">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="img-fluid full-width" src="./assets/images/customer-logo-2.png" alt="alternative">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="img-fluid full-width" src="./assets/images/customer-logo-3.png" alt="alternative">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="img-fluid full-width" src="./assets/images/customer-logo-4.png" alt="alternative">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="img-fluid full-width" src="./assets/images/customer-logo-5.png" alt="alternative">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="img-fluid full-width" src="./assets/images/customer-logo-6.png" alt="alternative">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </section> -->
+    
+        <!-- end of description -->
+        <section class="pd section" id="contact">
+            <div class="row flex-center">
+                <div class="col s12 center-align">
+                    <h2 class="upperline text-bold">Contactez-nous</h2><br>
+                </div>
+                <div class="col s12 m6">
+                    <h3>Nos cordonnées</h3>
+                    <div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <h4 class="" style="margin: 0;"><i class="bi-pin-map "></i>
+                                            <br>Adresse</h4>
+                                    </th>
+                                    <td>
+                                        <address>RDC Kinshasa.
+                                        </address>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <h4 class="" style="margin: 0;"><i class="bi-envelope red-text"></i><br> Mail</h4>
+                                    </th>
+                                    <td><a class="cyan-text text-darken-2" href="mailto:akelaxmerdi@gmail.com">akelaxmerdi@gmail.com</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <h4 class="" style="margin: 0;"><i class="bi-phone green-text"></i><br> Tél</h4>
+                                    </th>
+                                    <td>
+                                        <div>
+                                            <a class="cyan-text text-darken-2" href="tel:+243817709401">+243817709401</a>
+                                            <br>
+                                            <a class="cyan-text text-darken-2" href="tel:+243974362320">+243974362320</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <form class="card z-depth-5 bdr-3">
+                        <div class=" card-content">
+                            <h3>News-letter</h3>
+                            <p>Souscrivez-vous à notre news-letter pour rester informer de nos offres d'emploi</p>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="adress" type="email" class="validate" required>
+                                    <label for="adress">Votre e-mail</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 file-field input-field">
+                                    <button class="btn cyan accent-3 z-depth-0 black-text">Envoyez</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    
+    </main>
+
+    <footer class="page-footer background-color white-text">
+        <div class="pd">
+            <div class="row">
+                <div class="col s12 m4 l4">
+                    <h4 class="white-text"><i class="bi-question-square"></i> A propos de nous</h4>
+                    <p class="white-text opacity-8">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, autem? Distinctio ex laudantium ad ducimus odit quis illum atque est itaque consectetur nisi, reiciendis quaerat earum repudiandae neque fuga doloribus.
+                    </p>
+                </div>
+                <div class="col s12 m4 l3 white-text" id="projects">
+                    <h4 class="white-text"><i class="bi-clipboard-check"></i> Nos Services</h4>
+                    <ul class="">
+                        <li class="white-text">
+                            <i class="bi bi-arrow-right"></i> Consultation juridique
+                        </li>
+                        <li class="white-text">
+                            <i class="bi bi-arrow-right"></i> Consultation finacière
+                        </li>
+                        <li class="white-text">
+                            <i class="bi bi-arrow-right"></i> Consultation sur les strategies
+                        </li>
+                        <li class="white-text">
+                            <i class="bi bi-arrow-right"></i> Consultation avant d'entreprendre
+                        </li>
+                        <li class="white-text">
+                            <i class="bi bi-arrow-right"></i> Consultation digitale et technique
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l3 s12 m4 white-text">
+                    <h4 class="white-text"> <i class="bi-link"></i> Liens</h4>
+                    <ul>
+                        <li><a class="white-text" href="">Acceuil</a></li>
+                        <li><a class="white-text" href="#about">A propos de nous</a></li>
+                        <li><a class="white-text" href="{% url 'offers' %}">Offres</a></li>
+                    </ul>
+                </div>
+                <div class="col s12 m4 l2 white-text">
+                    <h4 class="white-text"><i class="bi-globe"></i> Social </h4>
+                    <ul>
+                        <li>
+                            <a class="green-text text-lighten-4" href="https://api.whatsapp.com/send?phone=243817709401&text=Job-pour-tous"><i class="bi-whatsapp" style="font-size: 22px;"></i> WhatsApp</a>
+                        </li>
+                        <li><a class="cyan-text text-lighten-4" href=""><i class="bi-facebook" style="font-size: 22px;"></i> Facebook</a>
+                        </li>
+                        <li>
+                            <a class="indigo-text text-lighten-4" href=""><i class="bi-linkedin" style="font-size: 22px;"></i> Linkedin</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="white-text pd center-align" style="width: 100%;">
+                    Copyright © 2022, <strong>EYANO LEGACY GROUP</strong> tous droits reservés
+            </div>
+        </div>
+    </footer>
+
+    <div class="bottom-bar hidden">
+        <a class="btn-floating btn-large cyan darken-3" href="https://api.whatsapp.com/send?phone=243817709401&text=Job-pour-tous">
+            <i class="" style="margin-top: 3px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                </svg>
+            </i>
+        </a>
+        <button class="btn-large z-depth-3 back-to-top btn-floating white cyan-text text-darken-2 z-depth-3">
+            <i style="margin-top: 2px;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 0 24 24" width="26px" fill="#00e5ff"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+            </i>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/anime.min.js"></script>
+    <script src="./assets/js/swiper.min.js"></script>
+    <script src="./assets/js/materialize.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+
+</body>
+
+</html>
