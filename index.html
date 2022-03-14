@@ -54,15 +54,14 @@
                 <a href="" class="brand-logo left header-logo flex-row">
                     <img src="./assets/images/logos/img_1646850136686.png" alt="u-immo logo">
                 </a>
-                <a href="#" data-target="mobile-demo_0" class="sidenav-trigger_0 waves-circle waves-light right">
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger waves-circle waves-light right">
                     <i class="black-text text-darken-2" style="display: flex; align-items: center;"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-          </svg>
-          </i>
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </i>
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="">Acceuil</a></li>
-                    <li><a href="{% url 'offers' %}">Services</a></li>
                     <li><a href="#about">A propos</a></li>
                     <li><a href="#projects">FAQ</a></li>
                     <li><a class="btn bdr-2 z-depth-0 cyan-text white-text btn-outline" href="#contact">CONTACT</a></li>
@@ -73,8 +72,8 @@
     <!-- Dropdown Structure -->
     <ul id="dropdown1" class="dropdown-content">
         <li class="divider"></li>
-        <li><a href="{% url 'account' %}">Mon profil</a></li>
-        <li><a href="{% url 'document' %}">Mes Documents</a></li>
+        <li><a href="">Mon profil</a></li>
+        <li><a href="">Mes Documents</a></li>
     </ul>
 
     <!-- Dropdown Structure -->
@@ -88,17 +87,16 @@
 
     <ul class="sidenav" id="mobile-demo" style="z-index: 2000;">
         <li class="">
-            <div class="blue darken-2 mobile-profil-nav flex-center">
+            <div class="cyan accent-3 darken-2 mobile-profil-nav flex-center">
                 <div class="mobile-nav-image-container">
                     {% if user.is_authenticated %}
-                    <div class="card-back-image z-depth-5" style="background-image: url('{{ user|profil_avatar_url }}'); height: 100%; border-radius: 100%;"></div>
+                    <div class="card-back-image z-depth-5" style="background-image: url(''); height: 100%; border-radius: 100%;"></div>
                     {% else %}
                     <div class="card-back-image z-depth-5" style="background-image: url('./assets/images/undraw_profile_pic_ic-5-t.svg'); height: 100%; border-radius: 100%;"></div>
                     {% endif %}
                 </div>
                 <div>
                     <h5 class="white-text capitalize center-align">
-                        {% if user.is_authenticated %} {{user.first_name }} {{ user.last_name}} {% else %} Job pour tous {% endif %}
                     </h5>
                 </div>
             </div>
@@ -112,15 +110,15 @@
                     </a>
                     <ul class="collapsible-body">
                         <li>
-                            <a href="{% url 'account' %}">
+                            <a href="">
                                 Profil
                             </a>
                         </li>
-                        <li> <a href="{% url 'document' %}">Document</a></li>
+                        <li> <a href="">Document</a></li>
                         <li class="divider"></li>
                         {% if user.is_staff %}
                         <li>
-                            <a href="{% url 'admin' %}">
+                            <a href="">
                                 Admin espace
                             </a>
                         </li>
@@ -146,9 +144,6 @@
                 A propos
             </a>
         </li>
-
-        <li><a href="{% url 'offers' %}">Offres d'emploi</a></li>
-
         <li>
             <a href="">
                 FAQ
@@ -157,19 +152,19 @@
         {% if user.is_authenticated %}
         <br>
         <li>
-            <a class=" red-text white z-depth-1 btn-large darken-1" href="{% url 'disconnect' %}">
+            <a class=" red-text white z-depth-1 btn-large darken-1" href="">
                         Se deconnecter
                     </a>
         </li>
         {% else %}
         <br>
         <li>
-            <a class="cyan-text white z-depth-1 btn-large darken-1" href="{% url 'connect' %}">
+            <a class="cyan-text white z-depth-1 btn-large darken-1" href="">
                         Se connecter
                     </a>
         </li>
         <li>
-            <a class="btn-large z-depth-1 blue darken-2" href="{% url 'register' %}">
+            <a class="btn-large z-depth-1 blue darken-2" href="">
                 S'enrégistrer
             </a>
         </li>
@@ -236,8 +231,8 @@
         <section class="pd section">
             <div class="row center-align flex-justify-center">
                 <div class="col s12">
-                    <h2 class="text-bold upperline">Ce que nous avons gardé pour vous</h2>
-                    <p>Prenez un rendez-vous avec un professionel pour la croissance de votre activité.</p>
+                    <h2 class="text-bold upperline">Ce que nous vous offrons</h2>
+                    <p>Des consultants et chefs d'entreprises à votre écoute.</p>
                     <br><br>
                 </div>
                 <div class="col s12 m4">
@@ -246,6 +241,10 @@
                             <img class=" pd50 full-width border-radius" style="height: 150px;" src="./assets/images/ullistrations/undraw_judge_katerina_limpitsouni_ny-1-q.svg" alt="">
                             
                             <h3 class="m-0">Consultation Juridique d'entreprise</h3>
+                            <br>
+                            <ul>
+                                <li>Tout savoir sur la procédure de création et organisation juridique des entreprises.</li>
+                            </ul>
                         </div>
                         <div class="bottom p-absolute full-width">
                             <a class="btn btn-outline cyan-text z-depth-0 bdr-2 modal-trigger" href="#modal1">Prendre RDV</a>
@@ -259,7 +258,7 @@
                             <h3 class="m-0">Consultation financière d'entreprise</h3>
                             <br>
                             <ul>
-                                <li>Tout savoir sur la fidelité de votre entreprise</li>
+                                <li>Tout savoir sur la gestion financière et l'élaboration des plans financiers de votre entreprise</li>
                             </ul>
                         </div>
                         <div class="bottom p-absolute full-width">
@@ -272,6 +271,10 @@
                         <div class="card-content">
                             <img class=" pd50 full-width border-radius" style="height: 150px;" src="./assets/images/ullistrations/undraw_growth_analytics_re_pyxf.svg" alt="">
                             <h3 class="m-0">Consultation sur les tratégies d'entreprise</h3>
+                            <br>
+                            <ul>
+                                <li>Tout savoir sur les stratégies de communication et la création de l'image de marque d'une entreprise</li>
+                            </ul>
                         </div>
                         <div class="bottom p-absolute full-width">
                             <a class="btn btn-outline cyan-text z-depth-0 bdr-2 modal-trigger" href="#modal1">Prendre RDV</a>
@@ -283,10 +286,10 @@
                         <div class="card-content">
                             <img class=" pd50 full-width border-radius" style="height: 150px;" src="./assets/images/ullistrations/undraw_runner_start_x-0-uu.svg" alt="">
                             
-                            <h3 class="m-0">Consultation avant d'entreprendre</h3>
+                            <h3 class="m-0">Consultation AV (avant d'entreprendre)</h3>
                             <br>
                             <ul>
-                                <li>Tout savoir sur son secteur</li>
+                                <li>Tout ce qu'il faut savoir avant de se lancer dans l'entrepreneuriat</li>
                             </ul>
                         </div>
                         <div class="bottom p-absolute full-width">
@@ -298,11 +301,25 @@
                     <div class="card z-depth-0 bdr-3" style="height: 400px;">
                         <div class="card-content">
                             <img class=" pd50 full-width border-radius" style="height: 150px;" src="./assets/images/ullistrations/undraw_bug_fixing_oc-7-a.svg" alt="">
-                            <h3 class="m-0">Consultation Digitale d'entreprise et Technique</h3>
+                            <h3 class="m-0">Mentorat en entreneuriat</h3>
                             <br>
                             <ul>
-                                <li>Pourquoi avoir un site internet</li>
-                                <li>Où heberger son site</li>
+                                <li>Accompagnement personnelisé de la conception à la réalisation de votre idée.</li>
+                            </ul>
+                        </div>
+                        <div class="bottom p-absolute full-width">
+                            <a class="btn btn-outline cyan-text z-depth-0 bdr-2 modal-trigger" href="#modal1">Prendre RDV</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card z-depth-0 bdr-3" style="height: 400px;">
+                        <div class="card-content">
+                            <img class=" pd50 full-width border-radius" style="height: 150px;" src="./assets/images/ullistrations/undraw_bug_fixing_oc-7-a.svg" alt="">
+                            <h3 class="m-0">Consultation en développement personnel</h3>
+                            <br>
+                            <ul>
+                                <li>Tout ce qu'il savoir pour avoir la motivation et le mindset entrepreneurial.</li>
                             </ul>
                         </div>
                         <div class="bottom p-absolute full-width">
@@ -321,12 +338,14 @@
                 </div>
                 <div class="col s12 m6">
                     <p class="text-justified">
-                        Nous sommes un <strong class="text-bold">un Call Center des entrepreneurs</strong>
-                        et lauréat de plusieurs concours d'entreneuriat.
-                        <br>Nous vous donnerons toutes les réponses possible afin de vous permettre de mieux saisir les opportunités.
+                        Nous sommes un <strong class="text-bold">Call Center des entrepreneurs</strong>
+                        et chefs d'entreprises.
+                        <br>Nous mettons notre savoir et notre expérience à votre disponibilité afin de vous permettre de croitre plus rapidement et mieux saisir les opportunités de marché.
                     </p>
 
-                    <h3 class="btn cyan z-depth-0 bdr-3" style="transform: rotateZ(-5deg) translateY(15px);">Ce que vous obtiendrez</h3>
+                    <h3 class="btn cyan z-depth-0 bdr-3" style="transform: rotateZ(-5deg) translateY(15px);">
+                        Ce que vous obtiendrez en plus
+                    </h3>
                     
                     <blockquote>
                         <ul>
@@ -338,7 +357,7 @@
                     <br>
                 </div>
                 <div class="col s12 m6">
-                    <img class=" full-width bdr-3" src="./assets/images/bg1.jpg" alt="">
+                    <img class=" full-width bdr-3" src="./assets/images/christina-wocintechchat-com-rg1y72eKw6o-unsplash.jpg" alt="">
                 </div>
             </div>
         </section>
@@ -356,7 +375,7 @@
                                 <div class="red-text text-lighten-3 text-bold" style="font-size: 70px; margin-bottom: 30px; text-decoration: underline; font-style: italic;">01 </div>
                                 <div>
                                     <h4>Consultation téléphonique</h4>
-                                    <p>Appelez gratuitement nos services et obtenez une solution à votre préocupation.</p>
+                                    <p>Notre ligne téléphonique est disponible 24/7 afin de répondre à vos préoccupations.</p>
                                     <br><br>
                                 </div>
                             </div>
@@ -366,7 +385,7 @@
                                 <div class="red-text text-lighten-3 text-bold" style="font-size: 70px; margin-bottom: 30px; text-decoration: underline; font-style: italic;">02 </div>
                                 <div>
                                     <h4>Consultation physique</h4>
-                                    <p>Prenez un rendez-vous avec un chef d'entreprise et obtenez une solution pratique et détaillée sur votre problème.</p>
+                                    <p>Nous sommes disponibles à vous répondre dans nos bureaux.</p>
                                     <br><br>
                                 </div>
                             </div>
@@ -376,7 +395,7 @@
                                 <div class="red-text text-lighten-3 text-bold" style="font-size: 70px; margin-bottom: 30px; text-decoration: underline; font-style: italic;">03 </div>
                                 <div>
                                     <h4>Mentorat</h4>
-                                    <p>Prenez un abonnement afin de travailler sur une opportunité à saisir ou une présentation à faire.</p>
+                                    <p>Le mentorat est un Accompagnement personnelisé d'une durée qui varie entre 1 et 6 mois.</p>
                                     <br><br>
                                 </div>
                             </div>
@@ -393,16 +412,21 @@
                 <div class="col s12 m6">
                     <ul class="collapsible z-depth-0">
                         <li>
-                          <div class="collapsible-header"><i class="bi bi-question"></i>First</div>
-                          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                          <div class="collapsible-header">A qui s'adresse ce service de consultence ?</div>
+                          <div class="collapsible-body yellow lighten-5">
+                              <p> <strong>L'entreneuriat est une maladie dont la Startup Call Center est l'hopital</strong>. <br>
+                            Toute personne atteinte par la maladie des affaires peut se faire consulter.</p>
+                          </div>
                         </li>
                         <li>
-                          <div class="collapsible-header"><i class="bi bi-question"></i>Second</div>
-                          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                          <div class="collapsible-header">Quand et comment prendre un rendez-vous ?</div>
+                          <div class="collapsible-body yellow lighten-5">Vous pouvez prendre rendez-vous quand vous le voulez, en remplissant le formulaire et en entrant en contact direct par appel ou par message.</div>
                         </li>
                         <li>
-                          <div class="collapsible-header"><i class="bi bi-question"></i>Third</div>
-                          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                          <div class="collapsible-header">Est-ce que les consultations sont payantes ?</div>
+                          <div class="collapsible-body yellow lighten-5">
+                              <p>Les consultations téléphoniques sont entièrement gratuites</p>
+                          </div>
                         </li>
                       </ul>
                 </div>
@@ -417,7 +441,8 @@
             <div class="row">
                 <h2 class="col s12 center-align white-text" style="margin-top: 0;">
                     Témoignages
-                    <br><br></h2>
+                    <br>
+                </h2>
                 <div class="col s12">
                     <div class="row pd50">
                         <div class="col s12 m4">
@@ -426,9 +451,26 @@
                             </div>
                         </div>
                         <div class="col s12 m8">
-                            <br>
+                            <h3 class="white-text">Jessy jess</h3>
                             <p class="white-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur eveniet ut quas? Molestias maiores ut alias? Possimus dolorem iusto harum minus obcaecati! Mollitia modi consectetur labore, omnis qui maxime sit?</p>
+                            <br>
+                            <a class="white-text" href="">Lien</a>
                         </div>
+                    </div>
+                    <div class="swiper mySwiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">Slide 1</div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide">Slide 4</div>
+                        <div class="swiper-slide">Slide 5</div>
+                        <div class="swiper-slide">Slide 6</div>
+                        <div class="swiper-slide">Slide 7</div>
+                        <div class="swiper-slide">Slide 8</div>
+                        <div class="swiper-slide">Slide 9</div>
+                      </div>
+                      <div class="swiper-button-next"></div>
+                      <div class="swiper-button-prev"></div>
                     </div>
                 </div>
             </div>
@@ -479,31 +521,29 @@
                         <table>
                             <tbody>
                                 <tr>
-                                    <th>
+                                    <th class="center-align">
                                         <h4 class="" style="margin: 0;"><i class="bi-pin-map "></i>
                                             <br>Adresse</h4>
                                     </th>
                                     <td>
-                                        <address>RDC Kinshasa.
+                                        <address>N° 1, avenue de l'OUA concession procoki, Q/ Basoko, C/ Ngaliema, Kinshasa RDC.
                                         </address>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>
+                                    <th class="center-align">
                                         <h4 class="" style="margin: 0;"><i class="bi-envelope red-text"></i><br> Mail</h4>
                                     </th>
-                                    <td><a class="cyan-text text-darken-2" href="mailto:akelaxmerdi@gmail.com">akelaxmerdi@gmail.com</a>
+                                    <td><a class="cyan-text text-darken-2" href="mailto:callcenterstartup@gmail.com">callcenterstartup@gmail.com</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>
+                                    <th class="center-align">
                                         <h4 class="" style="margin: 0;"><i class="bi-phone green-text"></i><br> Tél</h4>
                                     </th>
                                     <td>
                                         <div>
-                                            <a class="cyan-text text-darken-2" href="tel:+243817709401">+243817709401</a>
-                                            <br>
-                                            <a class="cyan-text text-darken-2" href="tel:+243974362320">+243974362320</a>
+                                            <a class="cyan-text text-darken-2" href="tel:+243892700056">+243 89 27000 56</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -515,7 +555,7 @@
                     <form class="card z-depth-5 bdr-3">
                         <div class=" card-content">
                             <h3>News-letter</h3>
-                            <p>Souscrivez-vous à notre news-letter pour rester informer de nos offres d'emploi</p>
+                            <p>Souscrivez-vous à notre news-letter pour rester informé.</p>
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input id="adress" type="email" class="validate" required>
@@ -540,8 +580,10 @@
             <div class="row">
                 <div class="col s12 m4 l4">
                     <h4 class="white-text"><i class="bi-question-square"></i> A propos de nous</h4>
-                    <p class="white-text opacity-8">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, autem? Distinctio ex laudantium ad ducimus odit quis illum atque est itaque consectetur nisi, reiciendis quaerat earum repudiandae neque fuga doloribus.
+                    <p class="white-text opacity-8 text-justified">
+                        Nous sommes un <strong class="text-bold">Call Center des entrepreneurs</strong>
+                        et chefs d'entreprises.
+                        <br>Nous mettons notre savoir et notre expérience à votre disponibilité afin de vous permettre de croitre plus rapidement et mieux saisir les opportunités de marché.
                     </p>
                 </div>
                 <div class="col s12 m4 l3 white-text" id="projects">
@@ -551,16 +593,19 @@
                             <i class="bi bi-arrow-right"></i> Consultation juridique
                         </li>
                         <li class="white-text">
-                            <i class="bi bi-arrow-right"></i> Consultation finacière
+                            <i class="bi bi-arrow-right"></i> Consultation financière
                         </li>
                         <li class="white-text">
                             <i class="bi bi-arrow-right"></i> Consultation sur les strategies
                         </li>
                         <li class="white-text">
-                            <i class="bi bi-arrow-right"></i> Consultation avant d'entreprendre
+                            <i class="bi bi-arrow-right"></i> Consultation AV
                         </li>
                         <li class="white-text">
-                            <i class="bi bi-arrow-right"></i> Consultation digitale et technique
+                            <i class="bi bi-arrow-right"></i> Mentorat en entreneuriat
+                        </li>
+                        <li class="white-text">
+                            <i class="bi bi-arrow-right"></i> Consultation sur le dév-perso
                         </li>
                     </ul>
                 </div>
@@ -569,7 +614,6 @@
                     <ul>
                         <li><a class="white-text" href="">Acceuil</a></li>
                         <li><a class="white-text" href="#about">A propos de nous</a></li>
-                        <li><a class="white-text" href="{% url 'offers' %}">Offres</a></li>
                     </ul>
                 </div>
                 <div class="col s12 m4 l2 white-text">
@@ -578,10 +622,8 @@
                         <li>
                             <a class="green-text text-lighten-4" href="https://api.whatsapp.com/send?phone=243892700056&tex=Startup-call-center..."><i class="bi-whatsapp" style="font-size: 22px;"></i> WhatsApp</a>
                         </li>
+                        <br>
                         <li><a class="cyan-text text-lighten-4" href=""><i class="bi-facebook" style="font-size: 22px;"></i> Facebook</a>
-                        </li>
-                        <li>
-                            <a class="indigo-text text-lighten-4" href=""><i class="bi-linkedin" style="font-size: 22px;"></i> Linkedin</a>
                         </li>
                     </ul>
                 </div>
@@ -610,10 +652,10 @@
     </div>
 
     <!-- Scripts -->
+    <script src="./assets/js/materialize.min.js"></script>
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/anime.min.js"></script>
     <script src="./assets/js/swiper.min.js"></script>
-    <script src="./assets/js/materialize.min.js"></script>
     <script src="./assets/js/app.js"></script>
 
 </body>

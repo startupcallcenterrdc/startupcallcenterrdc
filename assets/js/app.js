@@ -114,10 +114,15 @@ document.addEventListener('DOMContentLoaded', function() {
             loop: true
         });
 
-
+        var swiper = new Swiper(".mySwiper", {
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
 
         /* Image Slider 2 - Swiper */
-        var imageSliderOne = new Swiper('.image-slider-1', {
+        /* var imageSliderOne = new Swiper('.image-slider-1', {
             autoplay: {
                 delay: 5000,
                 disableOnInteraction: false
@@ -132,9 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 el: ".swiper-pagination",
             },
         });
-
-
-        /* Image Slider - Swiper */
         var imageSliderTwo = new Swiper('.image-slider-2', {
             autoplay: {
                 delay: 2000,
@@ -167,9 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             }
         });
-
-
-        /* Text Slider - Swiper */
         var textSlider = new Swiper('.text-slider', {
             autoplay: {
                 delay: 6000,
@@ -188,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     slidesPerView: 1,
                 },
             }
-        });
+        }); */
     })
 });
 /* #26a69a 1976D2 */

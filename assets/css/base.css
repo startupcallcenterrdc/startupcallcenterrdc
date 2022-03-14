@@ -133,6 +133,11 @@ p {
     border-radius: 20px !important;
 }
 
+.z-depth-0.card:hover{
+    box-shadow: 5px 5px 0px #f443365b !important;
+    border-radius: 4px !important;
+}
+
 .m-0{
     margin: 0 !important;
 }
@@ -231,7 +236,7 @@ label {
 .background-blur {
     /* 
   filter: blur(10px) !important; */
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
     background: #00616456 ;
 }
 
@@ -506,7 +511,7 @@ label {
 /* search bar */
 
 .search-section {
-    background-image: linear-gradient(rgba(209, 215, 223, 0.404), rgba(6, 29, 48, 0.856)), url(../images/priscilla-du-preez-vDzeKnPBPLM-unsplash.jpg);
+    background-image: linear-gradient(rgba(209, 215, 223, 0.404), rgba(6, 29, 48, 0.856)), url(../images/christina-wocintechchat-com-UcZcsHSp8o4-unsplash.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -699,7 +704,7 @@ label {
 }
 
 header {
-    background: linear-gradient(to right, #02142e80 0%, #0d48a13a 90%), url(../images/bg1.jpg) no-repeat;
+    background: linear-gradient(to right, #02142e80 0%, #0d48a13a 90%), url(../images/christina-wocintechchat-com-UcZcsHSp8o4-unsplash.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: left;
