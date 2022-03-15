@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
     hidePreloader();
-    
+
     getAllElements('.count').forEach((el) => {
 
         /* Image Slider 2 - Swiper */
@@ -166,6 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
             prevEl: ".swiper-button-prev",
         },
     });
-    
+
 });
 /* #26a69a 1976D2 */
