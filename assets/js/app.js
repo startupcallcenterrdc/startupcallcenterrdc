@@ -88,38 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
     hidePreloader();
-    //document.getElementById().innerHTML
+    
     getAllElements('.count').forEach((el) => {
-        let count = el.getAttribute('data-count');
-        const step = Math.round(count / el.getAttribute('data-step')) || 1;
-
-        const timer = () => setTimeout(() => {
-            el.innerHTML = el.getAttribute('data-count') - count;
-            if (count > 0) {
-                timer();
-            } else {
-                el.innerHTML = el.getAttribute('data-count');
-            }
-            console.log('timer', count);
-            count -= step;
-        }, 100);
-        timer();
-
-        anime({
-            targets: '.anime-svg svg path',
-            strokeDashoffset: [anime.setDashoffset, 0],
-            easing: 'easeInOutSine',
-            duration: 1500,
-            delay: function(el, i) { return i * 250 },
-            loop: true
-        });
-
-        var swiper = new Swiper(".mySwiper", {
-            navigation: {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-            },
-          });
 
         /* Image Slider 2 - Swiper */
         /* var imageSliderOne = new Swiper('.image-slider-1', {
@@ -189,5 +159,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }); */
     })
+
+    var swiper = new Swiper(".mySwiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+    
 });
 /* #26a69a 1976D2 */

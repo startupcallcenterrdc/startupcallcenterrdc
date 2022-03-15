@@ -133,6 +133,10 @@ p {
     border-radius: 20px !important;
 }
 
+.bdr-100{
+    border-radius: 100% !important;
+}
+
 .z-depth-0.card:hover{
     box-shadow: 5px 5px 0px #f443365b !important;
     border-radius: 4px !important;
@@ -396,7 +400,7 @@ label {
 
 .section {
     padding-top: 80px;
-    padding-bottom: 70px;
+    padding-bottom: 60px;
 }
 
 .sidenavbar {

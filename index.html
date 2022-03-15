@@ -26,15 +26,22 @@
 
     <!-- Website Title -->
     <title>Job pour tous</title>
+    <!-- Favicon  -->
+    <link rel="icon" href="./assets/images/logos/img_1646850136686.png">
 
     <link rel="stylesheet" href="./assets/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/bootstrap-icons.css">
-    <link rel="stylesheet" href="./assets/css/swiper.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 
-    <!-- Favicon  -->
-    <link rel="icon" href="./assets/images/logos/img_1646850136686.png">
+    <!-- Scripts -->
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
+
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
 </head>
 
 <body data-spy="scroll" data-target=".fixed-top">
@@ -202,7 +209,7 @@
                     <div class="col s0 m2"></div>
                 <form class="col s12 m10 card z-depth-5 bdr-2 background-blur">
                     <div class="card-content">
-                        <h3 class="white-text">Quel est votre préoccupation ?</h3>
+                        <h3 class="white-text">Quelle est votre préoccupation ?</h3>
                         <p class="white-text">Nous sommes disposés à vous accompagner !</p>
                         <div class="row">
                             <div class="input-field col s12 white-text">
@@ -444,33 +451,28 @@
                     <br>
                 </h2>
                 <div class="col s12">
-                    <div class="row pd50">
-                        <div class="col s12 m4">
-                            <div class="">
-                            <img class="full-width bdr-3" src="./assets/images/pic6.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col s12 m8">
-                            <h3 class="white-text">Jessy jess</h3>
-                            <p class="white-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur eveniet ut quas? Molestias maiores ut alias? Possimus dolorem iusto harum minus obcaecati! Mollitia modi consectetur labore, omnis qui maxime sit?</p>
-                            <br>
-                            <a class="white-text" href="">Lien</a>
-                        </div>
-                    </div>
                     <div class="swiper mySwiper">
                       <div class="swiper-wrapper">
-                        <div class="swiper-slide">Slide 1</div>
-                        <div class="swiper-slide">Slide 2</div>
-                        <div class="swiper-slide">Slide 3</div>
-                        <div class="swiper-slide">Slide 4</div>
-                        <div class="swiper-slide">Slide 5</div>
-                        <div class="swiper-slide">Slide 6</div>
-                        <div class="swiper-slide">Slide 7</div>
-                        <div class="swiper-slide">Slide 8</div>
-                        <div class="swiper-slide">Slide 9</div>
+                        <div class="swiper-slide row pd flex-center">
+                            <div class="col s12 m4">
+                                <div class="">
+                                <img class="full-width bdr-100" src="./assets/images/persons/Etienne Kapiamba.jpeg" alt="Etienne Kapiamba">
+                                </div>
+                            </div>
+                            <div class="col s12 m8">
+                                <p class="white-text text-justified">
+                                    Je n'avais qu'une idée de me lancer dans l'agri-business mais je ne savais pas comment m'y prendre. Après une consultation AV, aujourd'hui j'exerce mon activité en toute quiétude.
+                                </p>
+                                <blockquote>
+                                    Etienne Kapiamba
+                                </blockquote>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="swiper-slide black-text">Slide 6</div>
                       </div>
-                      <div class="swiper-button-next"></div>
-                      <div class="swiper-button-prev"></div>
+                      <div class="swiper-button-next white-text"></div>
+                      <div class="swiper-button-prev white-text"></div>
                     </div>
                 </div>
             </div>
@@ -485,22 +487,22 @@
             <div class="slider-container">
                 <div class="swiper-container image-slider-2">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                        <div class="swiper-slide black-text">
                             <img class="img-fluid full-width" src="./assets/images/customer-logo-1.png" alt="alternative">
                         </div>
-                        <div class="swiper-slide">
+                        <div class="swiper-slide black-text">
                             <img class="img-fluid full-width" src="./assets/images/customer-logo-2.png" alt="alternative">
                         </div>
-                        <div class="swiper-slide">
+                        <div class="swiper-slide black-text">
                             <img class="img-fluid full-width" src="./assets/images/customer-logo-3.png" alt="alternative">
                         </div>
-                        <div class="swiper-slide">
+                        <div class="swiper-slide black-text">
                             <img class="img-fluid full-width" src="./assets/images/customer-logo-4.png" alt="alternative">
                         </div>
-                        <div class="swiper-slide">
+                        <div class="swiper-slide black-text">
                             <img class="img-fluid full-width" src="./assets/images/customer-logo-5.png" alt="alternative">
                         </div>
-                        <div class="swiper-slide">
+                        <div class="swiper-slide black-text">
                             <img class="img-fluid full-width" src="./assets/images/customer-logo-6.png" alt="alternative">
                         </div>
                     </div>
@@ -655,7 +657,6 @@
     <script src="./assets/js/materialize.min.js"></script>
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/anime.min.js"></script>
-    <script src="./assets/js/swiper.min.js"></script>
     <script src="./assets/js/app.js"></script>
 
 </body>
